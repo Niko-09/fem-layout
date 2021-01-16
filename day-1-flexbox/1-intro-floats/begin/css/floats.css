@@ -5,39 +5,88 @@ html {
 }
 /* inherit border-box on all elements in the universe and before and after
  */
-*, 
-*:before, 
+*,
+*:before,
 *:after {
   box-sizing: inherit;
 }
 
 body {
-	font-family: Arial, Geneva, sans-serif;
+  font-family: Arial, Geneva, sans-serif;
 }
 a {
-	color: #2772B0;
+  color: #2772b0;
 }
 .wrapper {
-	width: 97%;
-	max-width: 1200px;
-	margin: 0 auto;
-	float: none;
-	background-color: #fff;
+  width: 97%;
+  max-width: 1200px;
+  margin: 0 auto;
+  float: none;
+  background-color: #fff;
 }
 
 div img {
-	width: 100%;
-	max-width: 225px; 
+  width: 100%;
+  max-width: 250px;
 }
 
 /* grid system -- mobile first! */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+[class*="col"] {
+  margin-right: 4%;
+  margin-left: 4%;
+  min-height: 1px;
+  width: 92%;
+}
 
+.col-1,
+.col-1-3 {
+  background-color: yellow;
+}
+.col-2 {
+  background-color: pink;
+}
+.col-3 {
+  background-color: cyan;
+}
+.col-4 {
+  background-color: purple;
+}
 
 /* Mobile Landscape Screen Sizes */
-@media only screen and (min-width: 480px)  {
-
-}
-/* Desktop screen Sizes */
-@media only screen and (min-width: 768px) {
-
+@media only screen and (min-width: 480px) {
+  [class*="col"] {
+    margin-right: 0;
+    min-height: 1px;
+    float: left;
+  }
+  .col-1,
+  .col-1-3,
+  .col-2 {
+    width: 44%;
+  }
+  .col-3,
+  .col-1-3,
+  .col-4 {
+    width: 92%;
+  }
+  /* Desktop screen Sizes */
+  @media only screen and (min-width: 768px) {
+    .col-1 {
+      width: 20%;
+    }
+    .col-2 {
+      width: 44%;
+    }
+    .col-3 {
+      width: 68%;
+    }
+    .col-4 {
+      width: 92%;
+    }
+  }
 }
